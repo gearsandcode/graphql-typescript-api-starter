@@ -2,6 +2,7 @@ import { createServer } from "http";
 import express from "express";
 import { ApolloServer, gql } from "apollo-server-express";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
+const { prisma } = require("./prisma/client");
 
 const startServer = async () => {
   const app = express();
@@ -9,13 +10,23 @@ const startServer = async () => {
 
   const typeDefs = gql`
     type Query {
-      hello: String
+      tokensets: [TokenSet]
+    }
+
+    type TokenSet {
+      id: ID!
+      author: String!
+      protected: Boolean!
+      title: String!
+      description: String
     }
   `;
 
   const resolvers = {
     Query: {
-      hello: () => "Hello world!",
+      tokensets: () => {
+        return prisma.tokensets.findMany();
+      },
     },
   };
 
