@@ -25,7 +25,7 @@ const startServer = async () => {
   const resolvers = {
     Query: {
       tokensets: () => {
-        return prisma.tokensets.findMany();
+        return prisma.tokenset.findMany();
       },
     },
   };
