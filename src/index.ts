@@ -10,22 +10,21 @@ const startServer = async () => {
 
   const typeDefs = gql`
     type Query {
-      tokensets: [TokenSet]
+      boards: [Board]
     }
 
-    type TokenSet {
+    type Board {
       id: ID!
-      author: String!
-      protected: Boolean!
       title: String!
       description: String
+      path: String!
     }
   `;
 
   const resolvers = {
     Query: {
-      tokensets: () => {
-        return prisma.tokenset.findMany();
+      boards: () => {
+        return prisma.board.findMany();
       },
     },
   };
