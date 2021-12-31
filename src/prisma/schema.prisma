@@ -12,7 +12,7 @@ datasource db {
 
 model TokenSet {
   id          Int       @id @default(autoincrement())
-  author      String    @unique
+  author      String
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   protected   Boolean
