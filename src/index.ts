@@ -11,6 +11,7 @@ const startServer = async () => {
   const typeDefs = gql`
     type Query {
       boards: [Board]
+      tokensets: [TokenSet]
     }
 
     type Board {
@@ -18,10 +19,6 @@ const startServer = async () => {
       title: String!
       description: String
       path: String!
-    }
-
-    type Query {
-      tokensets: [TokenSet]
     }
 
     type TokenSet {
