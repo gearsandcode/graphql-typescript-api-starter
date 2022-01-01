@@ -36,7 +36,7 @@ const startServer = async () => {
         return prisma.board.findMany();
       },
       tokensets: () => {
-        return prisma.tokenset.findMany();
+        return prisma.tokenSet.findMany();
       },
     },
   };
