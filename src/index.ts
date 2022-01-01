@@ -19,12 +19,27 @@ const startServer = async () => {
       description: String
       path: String!
     }
+
+    type Query {
+      tokensets: [TokenSet]
+    }
+
+    type TokenSet {
+      id: ID!
+      author: String!
+      protected: Boolean!
+      title: String!
+      description: String
+    }
   `;
 
   const resolvers = {
     Query: {
       boards: () => {
         return prisma.board.findMany();
+      },
+      tokensets: () => {
+        return prisma.tokenset.findMany();
       },
     },
   };
