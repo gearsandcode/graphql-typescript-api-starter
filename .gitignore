@@ -3,6 +3,3 @@ node_modules
 
 #ide
 .vscode
-
-#prisma
-src/prisma/migrations
